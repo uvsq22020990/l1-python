@@ -49,12 +49,37 @@ def tempsVolListe(n_max):
 
 print(tempsVolListe(100))
 
+#en compréhension de liste :
+
 def tempsVolListe(n_max):
     """ Retourne la liste de tous les temps de vol de 1 à n_max """
-    return [tempsVol(i) for i in range(1,n_max+1)]
+    return [tempsVol(i) for i in range(1,n_max+1)] # L= [expr for x in t]
 
 print(tempsVolListe(100))
 
 #Partie 2 question 6
 
-tempsVolListe.sort(10000)
+"""Déterminer quel entier entre 1 et 10000 a le plus grand temps de vol (réponse 6171 qui a le temps de vol 261)."""
+liste_triee = sorted(tempsVolListe(10000))
+print(liste_triee[-1]) #dernière valeur de la liste triéé, donc temps de vol max
+print(tempsVolListe(10000).index(261)+1) #donne l'indice de l'élément ayant comme valeur 261, or le premier indice de la liste est 0 donc 261 + 1
+
+#Partie 2 question 7
+
+"""L’altitude maximale de l'entier `n` est la plus grande valeur par laquelle passe `n` au cours de son vol. 
+Déterminer quel entier entre 1 et 10000 a la plus grande altitude maximale (réponse 27114424, atteint par l'entier 9663). 
+Ne pas hésiter à écrire de nouvelles fonctions pour cela."""
+liste=[]
+for i in range(1,10001):
+    liste.append(max(syracuse(i))) #ajoute le maximum de chaque liste donné par syracus pour les n de e1 à 10000 dans une liste vide
+
+liste_copie=list(liste) #on fait une copie de la liste
+
+liste.sort() #trie la liste avec les valeurs max de chaque liste allant de 1 à 10000
+
+print(liste[-1]) #donne le max de la liste (triée) ayant les valeurs max de chaque liste allat de 1 à 10000
+
+print(liste_copie.index(27114424)+1) #donne la position i-1 de la valeur 27114424 dans la liste des valeurs max des listes de syracus
+                                     # pour les n allant de 1 à 10000 (d'où le +1)
+
+
