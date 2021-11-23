@@ -24,6 +24,7 @@ def testeConjecture(n_max):
     else:
         return False
 
+
 print(testeConjecture(10000))
 
 #Partie 2 question 4
@@ -56,4 +57,4 @@ print(tempsVolListe(100))
 
 #Partie 2 question 6
 
-sort.tempsVolListe(10000)
+tempsVolListe.sort(10000)
